@@ -9,9 +9,16 @@ class Objet : public Entity {
 public:
 	Objet(int posX, int posY, float objetSpeed);
 	void update(float deltaTime) override;
-	void draw(sf::RenderWindow& window) override;
-	std::string tag = "Objet";
+	void draw(sf::RenderWindow& window) const override;
 
+	std::string tag;
+
+
+private:
+	float speed;
+	sf::Vector2f position;
+	sf::Vector2f velocity;
+	sf::RectangleShape objetshape;
 };
 #endif // !OBJET_H
 

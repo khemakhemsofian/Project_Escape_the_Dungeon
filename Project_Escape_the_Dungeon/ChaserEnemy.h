@@ -1,23 +1,23 @@
-#ifndef ENNEMI_H
-#define ENNEMI_H
+#ifndef CHASERENEMY_H
+#define CHASERENEMY_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Entity.h"
 #include "Player.h"
-#include "Objet.h"
+#include "Ennemi.h"
 
-class Ennemi : public Entity {
+class ChaserEnemy : public Ennemi {
 public:
-    Ennemi(int posX, int posY, float ennemiSpeed);
-   virtual void update(float deltaTime) override; 
+    ChaserEnemy(int posX, int posY, float ennemiSpeed, Player& player);
+    void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) const override;
     bool checkCollision(const Entity& other) const override;
     sf::RectangleShape ennemishape;
 
-protected:
+private:
     float speed;
     sf::Vector2f position;
     sf::Vector2f velocity;
+    Player& player;
 };
-
-#endif // !ENNEMI_H
+#endif // !CHASERENEMY_H

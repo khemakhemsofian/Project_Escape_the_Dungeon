@@ -8,10 +8,10 @@ class Player : public Entity {
 public:
     Player(int posX, int posY, float playerSpeed);
     void update(float deltaTime) override;
-    void draw(sf::RenderWindow& window) override;
+    void draw(sf::RenderWindow& window) const override;
     void handleInput(sf::RenderWindow& window);
-    bool checkCollision(const Entity& other) const; 
-    sf::RectangleShape getShape() const; 
+    bool checkCollision(const Entity& other) const override; 
+    sf::RectangleShape playershape;
 private:
     bool movingLeft;
     bool movingRight;
@@ -22,6 +22,5 @@ private:
     float gravity;
     sf::Vector2f position;
     sf::Vector2f velocity;
-    sf::RectangleShape playershape;
 };
 #endif // !PLAYER_H
