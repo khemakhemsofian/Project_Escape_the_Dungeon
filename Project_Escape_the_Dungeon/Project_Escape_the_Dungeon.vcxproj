@@ -132,12 +132,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ennemi.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Objet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Project_Escape_the_Dungeon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Objet.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

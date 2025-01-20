@@ -4,6 +4,7 @@ Player::Player(int posX, int posY, float playerSpeed) : position(posX, posY), ve
     playershape.setSize(sf::Vector2f(50, 50));
     playershape.setFillColor(sf::Color::Green);
     playershape.setPosition(position);
+	tag = "Player";
 }
 
 void Player::update(float deltaTime) {
@@ -55,5 +56,10 @@ void Player::handleInput(sf::RenderWindow& window) {
     else {
         canJump = true; 
     }
-    
+    bool Player::checkCollision(const Entity & other) const {
+        return playershape.getGlobalBounds().intersects(other.getShape().getGlobalBounds());
+    }
+	sf::RectangleShape Player::getShape() const {
+		return playershape;
+	}
 }
