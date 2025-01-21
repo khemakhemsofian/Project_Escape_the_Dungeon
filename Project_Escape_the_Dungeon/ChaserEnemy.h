@@ -2,7 +2,6 @@
 #define CHASERENEMY_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Entity.h"
 #include "Player.h"
 #include "Ennemi.h"
 
@@ -13,11 +12,9 @@ public:
     void draw(sf::RenderWindow& window) const override;
     bool checkCollision(const Entity& other) const override;
     sf::RectangleShape ennemishape;
+	sf::FloatRect getGlobalBounds() const override;
 
 private:
-    float speed;
-    sf::Vector2f position;
-    sf::Vector2f velocity;
     Player& player;
 };
 #endif // !CHASERENEMY_H

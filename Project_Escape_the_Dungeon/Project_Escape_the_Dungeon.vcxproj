@@ -135,18 +135,24 @@
     <ClCompile Include="ChaserEnemy.cpp" />
     <ClCompile Include="Ennemi.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="Objet.cpp" />
+    <ClCompile Include="Interactable.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="PatrollingEnemy.cpp" />
+    <ClCompile Include="PlatformTest.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Project_Escape_the_Dungeon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaserEnemy.h" />
     <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="Objet.h" />
+    <ClInclude Include="Interactable.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="PatrollingEnemy.h" />
+    <ClInclude Include="PlatformTest.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Potion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

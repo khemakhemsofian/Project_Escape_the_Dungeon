@@ -9,7 +9,8 @@ public:
 	virtual void draw(sf::RenderWindow& window) const = 0;
 	std::string tag;
 	virtual bool checkCollision(const Entity& other) const = 0;
-	
+	virtual sf::FloatRect getGlobalBounds() const = 0;
+
 
 };
 

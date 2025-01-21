@@ -1,13 +1,14 @@
 #include "Ennemi.h"
-#include "Objet.h"
+#include "Interactable.h"
 #include "Player.h"
+#include "ChaserEnemy.h"
 
 Ennemi::Ennemi(int posX, int posY, float ennemiSpeed) {
     position = sf::Vector2f(posX, posY);
     velocity = sf::Vector2f(0.0f, 0.0f);
     speed = ennemiSpeed;
     ennemishape.setSize(sf::Vector2f(50, 50));
-    ennemishape.setFillColor(sf::Color::Red);
+    ennemishape.setFillColor(sf::Color::White);
     ennemishape.setPosition(position);
     tag = "Ennemi";
 }
@@ -36,3 +37,7 @@ bool Ennemi::checkCollision(const Entity& other) const {
 	}
 	return false;
 }
+
+sf::FloatRect Ennemi::getGlobalBounds() const {
+    return ennemishape.getGlobalBounds();
+};
