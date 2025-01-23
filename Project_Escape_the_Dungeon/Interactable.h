@@ -4,13 +4,12 @@
 #include <iostream>
 #include "Player.h" 
 
-
-class Interactable : public Entity {
+class Interactable{
 public:
-    virtual void interact(Player& player) = 0;
+    virtual void interact(Player& player) = 0;/*
     virtual void update(float deltaTime) override = 0;
     virtual void draw(sf::RenderWindow& window) const override = 0;
-    virtual sf::FloatRect getGlobalBounds() const override = 0;
+    virtual sf::FloatRect getGlobalBounds() const override = 0;*/
 };
 
 #endif // INTERACTABLE_H

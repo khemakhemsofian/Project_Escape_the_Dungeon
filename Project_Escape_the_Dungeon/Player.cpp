@@ -2,9 +2,19 @@
 
 
 Player::Player(float posX, float posY, float playerSpeed)
-    : position(posX, posY), speed(playerSpeed), isGrounded(false), canJump(false), movingLeft(false), movingRight(false), jumping(false), jumpForce(300.0f), gravity(981.0f), hasKey(false) {
+    : position(posX, posY), speed(playerSpeed), isGrounded(false), canJump(false), movingLeft(false), movingRight(false), jumping(false), jumpForce(500.0f), gravity(981.0f), hasKey(false) {
     playershape.setSize(sf::Vector2f(50.0f, 50.0f));
     playershape.setPosition(position);
+}
+
+void Player::buff() {
+    if (potionClock.getElapsedTime().asSeconds() < 2.0f)
+    {
+        speed *= 2;
+	}
+	else {
+		speed = 150.0f;
+    }
 }
 
 void Player::update(float deltaTime) {
@@ -36,14 +46,14 @@ void Player::update(float deltaTime) {
 }
 
 void Player::handleInput(sf::RenderWindow& window) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
         movingLeft = true;
     }
     else {
         movingLeft = false;
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         movingRight = true;
     }
     else {

@@ -2,7 +2,6 @@
 #define CHASERENEMY_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Player.h"
 #include "Ennemi.h"
 
 class ChaserEnemy : public Ennemi {
