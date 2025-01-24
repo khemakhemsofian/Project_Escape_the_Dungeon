@@ -10,12 +10,13 @@
 #include "PatrollingEnemy.h"
 #include "Potion.h"
 #include "Key.h"
+#include "Map.h"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(1280, 960), "The Escape Dungeon");
 
     Player player(100.0f, 100.0f, 150.0f);
-    std::vector<std::unique_ptr<Entity>> ennemis;
+ /*   std::vector<std::unique_ptr<Entity>> ennemis;
     ennemis.push_back(std::make_unique<ChaserEnemy>(300, 100, 50.0f, player));
     ennemis.push_back(std::make_unique<PatrollingEnemy>(500, 200, 70.0f, std::vector<sf::Vector2f>{{500.0f, 200.0f}, { 700.0f, 200.0f }, { 700.0f, 400.0f }, { 500.0f, 400.0f }}, player));
 
@@ -36,7 +37,9 @@ int main() {
         potions.push_back(std::make_unique<Potion>(x, y, player));
     }
     int x = std::rand() % 1200 + 50;
-    keys.push_back(std::make_unique<Key>(x, y));
+    keys.push_back(std::make_unique<Key>(x, y));*/
+
+    Map map("map.txt", player);
    
     sf::Clock clock;
     while (window.isOpen()) {
@@ -49,70 +52,15 @@ int main() {
         player.handleInput(window);
         player.update(deltaTime.asSeconds());
 
-        for (const auto& platform : platformShape) {
-            player.handlePlatformCollision(platform);
+        if (map.checkCollision(player.getGlobalBounds())) {
+            // Handle collision with walls
         }
 
-        for (auto& ennemi : ennemis) {
-            if (auto* chaser = dynamic_cast<ChaserEnemy*>(ennemi.get())) {
-                chaser->update(deltaTime.asSeconds());
-            }
-            else {
-                ennemi->update(deltaTime.asSeconds());
-            }
-        }
-
-
-        for (auto it = potions.begin(); it != potions.end();) {
-            player.potionClock.restart();
-            (*it)->update(deltaTime.asSeconds());
-            if (!(*it)->isEffectActive() && player.getGlobalBounds().intersects((*it)->getGlobalBounds())) {
-                if (!(*it)->isAnyPotionActive()) {
-                    
-                    (*it)->interact(player);
-                    it = potions.erase(it);
-                    std::cout << "Potion recuperee et retiree du jeu." << std::endl;
-                }
-                else {
-                    ++it;
-                }
-            }
-            else {
-                ++it;
-            }
-        }
-
-        for (auto it = keys.begin(); it != keys.end();) {
-            if (player.getGlobalBounds().intersects((*it)->getGlobalBounds())) {
-                (*it)->interact(player);
-                it = keys.erase(it);
-                std::cout << "Cle recuperee et retiree du jeu." << std::endl;
-            }
-            else {
-                ++it;
-            }
-        }
+        map.update(deltaTime.asSeconds());
 
         window.clear();
+        map.draw(window);
         player.draw(window);
-        for (const auto& platform : platformShape) {
-            window.draw(platform);
-        }
-        if (!nullptr)
-        {
-            for (const auto& ennemi : ennemis) {
-                ennemi->draw(window);
-            }
-
-            for (const auto& potion : potions) {
-
-                potion->draw(window);
-            }
-            for (const auto& key : keys) {
-                key->draw(window);
-            }
-        }
-       
         window.display();
     }
 

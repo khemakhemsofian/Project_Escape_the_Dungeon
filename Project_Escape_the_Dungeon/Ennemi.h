@@ -10,7 +10,7 @@ public:
     Ennemi(int posX, int posY, float ennemiSpeed);
    virtual void update(float deltaTime) override; 
     void draw(sf::RenderWindow& window) const override;
-    bool checkCollision(const Entity& other) const override;
+    //bool checkCollision(const Entity& other) const override;
     sf::FloatRect getGlobalBounds() const override;
     sf::RectangleShape ennemishape;
 

@@ -23,20 +23,20 @@ void Ennemi::draw(sf::RenderWindow& window) const {
     window.draw(ennemishape);
 }
 
-bool Ennemi::checkCollision(const Entity& other) const {
-	const Player* player = dynamic_cast<const Player*>(&other);
-    if (player)
-    {
-        return ennemishape.getGlobalBounds().intersects(player->playershape.getGlobalBounds());
-    }
-
-	const Ennemi*ennemi = dynamic_cast<const Ennemi*>(&other);
-	if (ennemi)
-	{
-		return ennemishape.getGlobalBounds().intersects(ennemi->ennemishape.getGlobalBounds());
-	}
-	return false;
-}
+//bool Ennemi::checkCollision(const Entity& other) const {
+//	const Player* player = dynamic_cast<const Player*>(&other);
+//    if (player)
+//    {
+//        return ennemishape.getGlobalBounds().intersects(player->playershape.getGlobalBounds());
+//    }
+//
+//	const Ennemi*ennemi = dynamic_cast<const Ennemi*>(&other);
+//	if (ennemi)
+//	{
+//		return ennemishape.getGlobalBounds().intersects(ennemi->ennemishape.getGlobalBounds());
+//	}
+//	return false;
+//}
 
 sf::FloatRect Ennemi::getGlobalBounds() const {
     return ennemishape.getGlobalBounds();

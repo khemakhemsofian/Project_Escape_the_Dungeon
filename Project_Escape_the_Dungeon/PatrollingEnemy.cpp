@@ -24,19 +24,19 @@ void PatrollingEnemy::update(float deltaTime) {
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.size();
     }
     ennemishape.setPosition(position);
-    if (checkCollision(player))
-    {
-        std::cout << "patrol t'a toucher ahah" << std::endl;
-    }
+    //if (checkCollision(player))
+    //{
+    //    std::cout << "patrol t'a toucher ahah" << std::endl;
+    //}
 }
 
 void PatrollingEnemy::draw(sf::RenderWindow& window) const {
     window.draw(ennemishape);
 }
 
-bool PatrollingEnemy::checkCollision(const Entity& other) const {
-    return ennemishape.getGlobalBounds().intersects(other.getGlobalBounds());
-}
+//bool PatrollingEnemy::checkCollision(const Entity& other) const {
+//    return ennemishape.getGlobalBounds().intersects(other.getGlobalBounds());
+//}
 
 sf::FloatRect PatrollingEnemy::getGlobalBounds() const {
 	return ennemishape.getGlobalBounds();

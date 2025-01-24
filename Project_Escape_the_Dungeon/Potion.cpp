@@ -39,9 +39,9 @@ void Potion::draw(sf::RenderWindow& window) const {
     window.draw(potionShape);
 }
 
-bool Potion::checkCollision(const Entity& other) const {
-	return potionShape.getGlobalBounds().intersects(other.getGlobalBounds());
-}
+//bool Potion::checkCollision(const Entity& other) const {
+//	return potionShape.getGlobalBounds().intersects(other.getGlobalBounds());
+//}
 sf::FloatRect Potion::getGlobalBounds() const {
     return potionShape.getGlobalBounds();
 }

@@ -8,7 +8,7 @@ public:
     PatrollingEnemy(int posX, int posY, float speed, const std::vector<sf::Vector2f>& waypoints,Player& player);
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) const override;
-    bool checkCollision(const Entity& other) const override;
+    //bool checkCollision(const Entity& other) const override;
 	sf::FloatRect getGlobalBounds() const override;
 
 private:

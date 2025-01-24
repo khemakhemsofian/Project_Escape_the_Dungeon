@@ -2,6 +2,7 @@
 #define KEY_H
 #include "Interactable.h"
 
+
 class Key : public Entity, public Interactable {
 public:
     Key(int posX, int posY);
@@ -9,8 +10,7 @@ public:
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) const override;
     sf::FloatRect getGlobalBounds() const override;
-	bool checkCollision(const Entity& other) const override;
-    // void handleInteractableCollision(Player& player); // Commentée ou supprimée
+   // bool checkCollision(const Entity& other) const override;
 
 private:
     sf::RectangleShape keyShape;

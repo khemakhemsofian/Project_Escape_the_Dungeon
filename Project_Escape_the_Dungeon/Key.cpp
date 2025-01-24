@@ -25,9 +25,9 @@ sf::FloatRect Key::getGlobalBounds() const {
     return keyShape.getGlobalBounds();
 }
 
-bool Key::checkCollision(const Entity& other) const {
-	return keyShape.getGlobalBounds().intersects(other.getGlobalBounds());
-}
+//bool Key::checkCollision(const Entity& other) const {
+//	return keyShape.getGlobalBounds().intersects(other.getGlobalBounds());
+//}
 
 //void Key::handleInteractableCollision(Player& player) {
 //    if (player.playershape.getGlobalBounds().intersects(this->getGlobalBounds())) {

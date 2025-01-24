@@ -1,7 +1,7 @@
 #ifndef POTION_H
 #define POTION_H
 #include "Interactable.h"
-#include "Entity.h"
+#include "Player.h"
 
 class Potion : public Entity, public Interactable {
 public:
@@ -10,7 +10,7 @@ public:
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) const override;
     sf::FloatRect getGlobalBounds() const override;
-    bool checkCollision(const Entity& other) const override;
+    //bool checkCollision(const Entity& other) const override;
 	bool isEffectActive() const;
     bool isAnyPotionActive();
     void setAnyPotionActive(bool active);

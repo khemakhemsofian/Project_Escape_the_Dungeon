@@ -29,9 +29,9 @@ void ChaserEnemy::draw(sf::RenderWindow& window) const {
     window.draw(ennemishape);
 }
 
-bool ChaserEnemy::checkCollision(const Entity& other) const {
-    return ennemishape.getGlobalBounds().intersects(other.getGlobalBounds());
-}
+//bool ChaserEnemy::checkCollision(const Player& other) const {
+//    return ennemishape.getGlobalBounds().intersects(other.getGlobalBounds());
+//}
 
 sf::FloatRect ChaserEnemy::getGlobalBounds() const {
 	return ennemishape.getGlobalBounds();
